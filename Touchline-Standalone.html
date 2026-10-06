@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Touchline Vereinsführung 2026/27</title>
+<style>
+:root{--bg:#07110d;--panel:#0d1a14;--panel2:#11251b;--line:#234a35;--text:#f5f7f6;--muted:#a8b8ae;--accent:#80e3a2;--gold:#ffd166;--danger:#ff7474;--blue:#7ab8ff}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:linear-gradient(145deg,#06100c,#0b1711);color:var(--text)}button,input,select{font:inherit}.shell{min-height:100vh;display:grid;grid-template-columns:250px 1fr}.sidebar{background:#08130e;border-right:1px solid var(--line);padding:22px;position:sticky;top:0;height:100vh}.brand{font-weight:900;letter-spacing:.08em;font-size:22px}.brand span{color:var(--accent)}.season{color:var(--muted);font-size:12px;margin:4px 0 24px}.nav button{display:block;width:100%;text-align:left;background:transparent;border:0;color:var(--muted);padding:12px 10px;border-radius:10px;margin:4px 0;cursor:pointer}.nav button.active,.nav button:hover{background:var(--panel2);color:#fff}.main{padding:28px;max-width:1500px}.topbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:24px}.clubline strong{font-size:24px}.clubline div{color:var(--muted);font-size:13px}.role{background:var(--panel2);border:1px solid var(--line);color:#fff;border-radius:10px;padding:9px 12px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{background:linear-gradient(180deg,#0d1a14,#0b1711);border:1px solid var(--line);border-radius:16px;padding:18px}.kpi{grid-column:span 3}.wide{grid-column:span 8}.side{grid-column:span 4}.full{grid-column:1/-1}.label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.value{font-size:26px;font-weight:800;margin-top:5px}.small{font-size:13px;color:var(--muted)}h1,h2,h3{margin-top:0}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:760px}th,td{padding:11px 12px;border-bottom:1px solid #183526;text-align:left;font-size:14px}th{color:var(--muted);font-size:12px;text-transform:uppercase;position:sticky;top:0;background:#0d1a14}.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#173422;color:var(--accent);font-size:12px;font-weight:700}.rating{font-weight:900;font-size:16px}.rating.high{color:var(--gold)}.button{background:var(--accent);color:#06210f;border:0;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}.button.secondary{background:#173422;color:#dff7e7;border:1px solid var(--line)}.button.danger{background:#42211f;color:#ffdada}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px}.toolbar input,.toolbar select,.form input,.form select{background:#09150f;color:#fff;border:1px solid var(--line);border-radius:9px;padding:10px}.progress{height:8px;background:#14291e;border-radius:10px;overflow:hidden}.progress>i{display:block;height:100%;background:var(--accent)}.modalback{position:fixed;inset:0;background:#000b;display:flex;align-items:center;justify-content:center;padding:18px;z-index:50}.modal{width:min(720px,100%);max-height:90vh;overflow:auto;background:#0c1a13;border:1px solid var(--line);border-radius:18px;padding:20px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form label{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}.form input,.form select{width:100%}.notice{padding:12px;border-radius:10px;background:#152d20;border:1px solid var(--line);margin:12px 0}.bad{color:var(--danger)}.good{color:var(--accent)}.gold{color:var(--gold)}.hero{padding:28px;border-radius:22px;background:radial-gradient(circle at 10% 0,#164c2a,#0a1610 58%);border:1px solid var(--line);margin-bottom:16px}.hero h1{font-size:36px;margin-bottom:6px}.split{display:grid;grid-template-columns:1fr 1fr;gap:14px}.setup{max-width:850px;margin:60px auto;padding:24px}.setup .formgrid{grid-template-columns:1fr 1fr}.source{font-size:12px;color:var(--muted);line-height:1.5}@media(max-width:900px){.shell{grid-template-columns:1fr}.sidebar{height:auto;position:static;border-right:0;border-bottom:1px solid var(--line)}.nav{display:flex;overflow:auto}.nav button{min-width:max-content}.main{padding:16px}.kpi,.wide,.side{grid-column:1/-1}.formgrid,.setup .formgrid,.split{grid-template-columns:1fr}.topbar{align-items:flex-start;flex-direction:column}.hero h1{font-size:28px}}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+window.TOUCHLINE_DB = (() => {
+  const clubs = [
+    {id:'fcb',name:'FC Bayern München',short:'Bayern',stadium:'Allianz Arena',capacity:75000,strength:91,reputation:96,transferBudget:150000000,wageBudget:5200000,ticketPrice:72,coach:'Vincent Kompany',sportingDirector:'Christoph Freund',board:'Max Eberl'},
+    {id:'bvb',name:'Borussia Dortmund',short:'Dortmund',stadium:'Signal Iduna Park',capacity:81365,strength:86,reputation:91,transferBudget:85000000,wageBudget:3500000,ticketPrice:54,coach:'Niko Kovač',sportingDirector:'Ole Book',board:'Lars Ricken'},
+    {id:'rbl',name:'RB Leipzig',short:'Leipzig',stadium:'Red Bull Arena',capacity:47800,strength:84,reputation:86,transferBudget:90000000,wageBudget:2900000,ticketPrice:48,coach:'Martín Demichelis',sportingDirector:'Sebastian Schuppan',board:'Marcel Schäfer'},
+    {id:'vfb',name:'VfB Stuttgart',short:'Stuttgart',stadium:'MHPArena',capacity:60058,strength:82,reputation:83,transferBudget:58000000,wageBudget:2350000,ticketPrice:49,coach:'Sebastian Hoeneß',sportingDirector:'Christian Gentner',board:'Fabian Wohlgemuth'},
+    {id:'b04',name:'Bayer 04 Leverkusen',short:'Leverkusen',stadium:'BayArena',capacity:30210,strength:85,reputation:87,transferBudget:82000000,wageBudget:2850000,ticketPrice:53,coach:'Carles Martínez',sportingDirector:'Kim Falkenberg',board:'Simon Rolfes'},
+    {id:'scf',name:'Sport-Club Freiburg',short:'Freiburg',stadium:'Europa-Park Stadion',capacity:34700,strength:79,reputation:78,transferBudget:34000000,wageBudget:1550000,ticketPrice:42,coach:'Julian Schuster',sportingDirector:'Klemens Hartenbach',board:'Jochen Saier'},
+    {id:'sge',name:'Eintracht Frankfurt',short:'Frankfurt',stadium:'Deutsche Bank Park',capacity:58000,strength:81,reputation:83,transferBudget:60000000,wageBudget:2250000,ticketPrice:51,coach:'Adi Hütter',sportingDirector:'Timmo Hardung',board:'Markus Krösche'},
+    {id:'fca',name:'FC Augsburg',short:'Augsburg',stadium:'WWK Arena',capacity:30660,strength:75,reputation:72,transferBudget:22000000,wageBudget:1180000,ticketPrice:39,coach:'Manuel Baum',sportingDirector:'Benni Weber',board:'Geschäftsführung'},
+    {id:'m05',name:'1. FSV Mainz 05',short:'Mainz',stadium:'MEWA ARENA',capacity:33305,strength:76,reputation:73,transferBudget:26000000,wageBudget:1260000,ticketPrice:40,coach:'Urs Fischer',sportingDirector:'Niko Bungert',board:'Christian Heidel'},
+    {id:'bmg',name:'Borussia Mönchengladbach',short:'Gladbach',stadium:'ista-Borussia-Park',capacity:54042,strength:78,reputation:80,transferBudget:37000000,wageBudget:1700000,ticketPrice:45,coach:'Eugen Polanski',sportingDirector:'Rouven Schröder',board:'Geschäftsführung'},
+    {id:'hsv',name:'Hamburger SV',short:'Hamburg',stadium:'Volksparkstadion',capacity:57000,strength:76,reputation:82,transferBudget:30000000,wageBudget:1500000,ticketPrice:46,coach:'Merlin Polzin',sportingDirector:'Claus Costa',board:'Stefan Kuntz'},
+    {id:'koe',name:'1. FC Köln',short:'Köln',stadium:'RheinEnergieSTADION',capacity:50000,strength:76,reputation:79,transferBudget:28000000,wageBudget:1480000,ticketPrice:44,coach:'René Wagner',sportingDirector:'Thomas Kessler',board:'Geschäftsführung'},
+    {id:'svw',name:'SV Werder Bremen',short:'Bremen',stadium:'Weserstadion',capacity:42100,strength:77,reputation:80,transferBudget:32000000,wageBudget:1520000,ticketPrice:44,coach:'Daniel Thioune',sportingDirector:'Clemens Fritz',board:'Geschäftsführung'},
+    {id:'s04',name:'FC Schalke 04',short:'Schalke',stadium:'VELTINS-Arena',capacity:62271,strength:75,reputation:84,transferBudget:26000000,wageBudget:1550000,ticketPrice:43,coach:'Miron Muslić',sportingDirector:'Youri Mulder',board:'Vorstand'},
+    {id:'elv',name:'SV Elversberg',short:'Elversberg',stadium:'URSAPHARM-Arena an der Kaiserlinde',capacity:10000,strength:72,reputation:64,transferBudget:12000000,wageBudget:720000,ticketPrice:31,coach:'Vincent Wagner',sportingDirector:'Sportliche Leitung',board:'Geschäftsführung'},
+    {id:'scp',name:'SC Paderborn 07',short:'Paderborn',stadium:'Home Deluxe Arena',capacity:15000,strength:73,reputation:68,transferBudget:15000000,wageBudget:820000,ticketPrice:33,coach:'Ralf Kettemann',sportingDirector:'Sportliche Leitung',board:'Geschäftsführung'},
+    {id:'tsg',name:'TSG Hoffenheim',short:'Hoffenheim',stadium:'SNP Arena',capacity:30150,strength:79,reputation:77,transferBudget:42000000,wageBudget:1900000,ticketPrice:39,coach:'Christian Ilzer',sportingDirector:'Andreas Schicker',board:'Geschäftsführung'},
+    {id:'fcu',name:'1. FC Union Berlin',short:'Union Berlin',stadium:'Stadion An der Alten Försterei',capacity:22012,strength:75,reputation:74,transferBudget:23000000,wageBudget:1200000,ticketPrice:38,coach:'Mauro Lustrinelli',sportingDirector:'Horst Heldt',board:'Geschäftsführung'},
+  ];
+
+  const squads = {
+    fca: {
+      TW:['Finn Dahmen','Nediljko Labrović','Tom Wisbereit'],
+      ABW:['Calvin Brackelmann','Chrislain Matsima','Jeffrey Gouweleeuw','Youngwoo Seol','Hennes Behrens','Marius Wolf','Juma Bah','Noahkai Banks'],
+      MF:['Han-Noah Massengo','Sima Suso','Mert Kömür','Yannik Keitel','Tim Breithaupt','Robin Fellhauer','Alexis Claude-Maurice','Arijon Ibrahimović','Faik Sakar','Anton Kade','Fabian Rieder','Tim Schnitzer','Mahmut Küçükşahin'],
+      ST:['Rodrigo Ribeiro','Michael Gregoritsch','Steve Mounié','Uchenna Ogundu']
+    },
+    fcu: {
+      TW:['Frederik Rønnow','Carl Klaus','Matheo Raab','Fritz Gagzow'],
+      ABW:['Felix Uduokhai','Andrik Markgraf','Zeno van den Bosch','Marvin Friedrich','Leopold Querfeld','Tom Rothe','Derrick Köhn','Josip Juranović','Christopher Trimmel','Stanley Nsoki'],
+      MF:['Aljoscha Kemlein','Rani Khedira','Woo-yeong Jeong','András Schäfer','Janik Haberer','Michel Aebischer','Tim Skarke','Robert Skov','Kastriot Imeri','Duje Slišković','Linus Güther'],
+      ST:['Oliver Burke','Livan Burcu','Andrej Ilić','Marin Ljubičić','Emmanuel Latte Lath','Mekhi Gray','Julien Friedrich']
+    },
+    rbl: {
+      TW:['Ørjan Nyland','Leopold Zingerle','Maarten Vandevoordt'],
+      ABW:['Abdoul Koné','Maxime Estève','Willi Orbán','Lukas Klostermann','David Raum','Castello Lukeba','Max Finkgräfe','Benjamin Henrichs'],
+      MF:['Ezechiel Banzuzi','Assan Ouédraogo','Brajan Gruda','Nicolas Seiwald','Christoph Baumgartner','Ridle Baku','Rocco Reitz','Neil El Aynaoui','Andrija Maksimović','Benno Kaltefleiter','Viggo Gebel'],
+      ST:['Antonio Nusa','Marc Guiu','Johan Bakayoko','Tidiam Gomis','Christopher Nkunku','Rômulo','Samba Konaté']
+    },
+    b04: {
+      TW:['Mark Flekken','Janis Blaswich','Niklas Lomb'],
+      ABW:['Facundo Medina','Miguel Gutiérrez','Jarell Quansah','Loïc Badé','Edmond Tapsoba','Tim Oermann','Lucas Vázquez','Guéla Doué'],
+      MF:['Ezequiel Fernández','Jonas Hofmann','Robert Andrich','Malik Tillman','Kennet Eichhorn','Aleix García','Ibrahim Maza'],
+      ST:['Afonso Moreira','Martin Terrier','Patrik Schick','Moussa Diaby','Victor Boniface','Nathan Tella','Eliesse Ben Seghir','Christian Kofane','Montrell Culbreath']
+    },
+    m05: {
+      TW:['Alexander Schwolow','Robin Zentner','Maximilian Kinzig'],
+      ABW:['Phillipp Mwene','Fabio Gruber','Stefan Posch','Eric Martel','Stefan Bell','Anthony Caci','Danny da Costa','Silvan Widmer','Dominik Kohr','Rael Nakuzola','Kacper Potulski'],
+      MF:['Kaishu Sano','Jaesung Lee','Paul Nebel','Nadiem Amiri','Lennard Maloney','Otto Ruoppi','Sota Kawasaki'],
+      ST:['Phillip Tietz','Ransford-Yeboah Königsdörffer','Benedict Hollerbach','Sheraldo Becker','Silas Katompa Mvumpa','Alynho Haïdara']
+    },
+    bmg: {
+      TW:['Moritz Nicolas','Tobias Sippel','Jan Olschowsky','Daniel Batz'],
+      ABW:['Fabio Chiarodia','Kevin Diks','Jan Leszczyński','Kō Itakura','Daiki Hashioka','David Herold','Yukhym Konoplya','Lukas Ullrich','Joe Scally'],
+      MF:['Kevin Stöger','Enzo Leopold','Franck Honorat','Florian Neuhaus','Philipp Sander','Jens Castrop','Nicolas Kühn','Robin Hack','Fritz Fleck','Mathieu Nguefack','Wael Mohya','Hugo Bolin','Zento Uno'],
+      ST:['Isac Lidberg','Tim Kleindienst','Shūto Machino','Iaia Manco Danfa']
+    },
+    fcb: {
+      TW:['Manuel Neuer','Sven Ulreich','Jonas Urbig'],
+      ABW:['Dayot Upamecano','Minjae Kim','Jonathan Tah','Nathaniel Brown','Alphonso Davies','Hiroki Ito','Sacha Boey','Josip Stanišić'],
+      MF:['Joshua Kimmich','Tom Bischof','Jamal Musiala','Konrad Laimer','Ismael Saibari','Bara Sapoko Ndiaye','Lennart Karl','Aleksandar Pavlović','David Santos Daiber','Maycon Douglas Cardozo'],
+      ST:['Serge Gnabry','Harry Kane','Luis Díaz','Michael Olise','Bastian Assomo']
+    },
+    scp: {
+      TW:['Markus Schubert','Nahuel Noll','Florian Pruhs'],
+      ABW:['Ruben Müller','Jonah Sticker','Nyamekye Awortwie-Grant','Laurin Curda','Felix Götze','Jan Oter Horst','Niklas Mohr','Tjark Scheller','Clemens Lippmann','Marcel Hoffmeier','Tristan Zobel'],
+      MF:['Santiago Castaneda','Tom Baack','Oliver Batista Meier','Luka Durić','Mattes Hansen','Raphael Obermair','Sebastian Klaas','Laurin Ulrich','Gabriel Vidović','Timur Gayret','Vigo Wernet'],
+      ST:['Rayan Philippe','Sven Michel','Marvin Pieringer','Albert Millgramm','Steffen Tigges','Stefano Marino','Lasse Eickel','Deniz Zeitler']
+    },
+    s04: {
+      TW:['Loris Karius','Kevin Müller','Johannes Siebeking'],
+      ABW:['Hasan Kuruçay','Timo Becker','Robin Gosens','Adrian Gantenbein','Nikola Katić','Tomáš Kalas','Anton Donkor','Vitalie Becker','Maximilian Wöber','Mertcan Ayhan'],
+      MF:['Ron Schallenberg','Satoshi Tanaka','Janik Bachmann','Dejan Ljubičić','Soufiane El-Faouzi','Adil Aouchiche','Finn Porath','Junior Dina Ebimbe','Max Grüger','Luca Vozar'],
+      ST:['Hee Chan Hwang','Moussa Sylla','Edin Džeko','Bryan Lasme','Emil Højlund','Kenan Karaman','Junior Adamu','Zaid Tchibara']
+    },
+    vfb: {
+      TW:['Fabian Bredlow','Marius Funk','Dennis Seimen','Stefan Drljača'],
+      ABW:['Ameen Al-Dakhil','Ramon Hendriks','Josha Vagnoman','Maximilian Mittelstädt','Luca Jaquez','Leonidas Stergiou','Lorenz Assignon','Dan-Axel Zagadou','Jeff Chabot','Finn Jeltsch','Maximilian Herwerth','Alexander Groiß','Dominik Nothnagel'],
+      MF:['Angelo Stiller','Chris Führich','Bilal El Khannouss','Atakan Karazor','Grischa Prömel','Nikolas Nartey','Ertugrul Yigit','Jarzinho Malanga','Yanik Spalt'],
+      ST:['Tiago Tomás','Ermedin Demirović','Dženan Pejčinović','Jamie Leweling','Deniz Undav','Justin Diehl','Leo Sauer']
+    },
+    svw: {
+      TW:['Karl Hein','Markus Kolke','Alexander Schlager','Stefan Smarkalev'],
+      ABW:['Olivier Deman','Oskar Wójcik','Niklas Stark','Amos Pieper','Mitchell Weiser','Arthur','Moussa Ndiaye','Felix Agu','Marco Friedl','Mick Schmetgens','Luca Höcker','Mats Heitmann','Ramiz Hamouda'],
+      MF:['Jens Stage','Senne Lynen','Ludovit Reis','Eren Dinkçi','Chuki','Dariusz Stalmach','Skelly Alvero','Darwin Soylu','Arian Römers','Youri Regeer'],
+      ST:['Keke Topp','Niclas Füllkrug','Justin Njinmah','Marco Grüll','Kenny Emmanuel Quetant','Cedric Itten','Salim Musah','Paul Erevbenagie','Karlo Mijo']
+    },
+    bvb: {
+      TW:['Gregor Kobel','Patrick Drewes','Silas Ostrzinski','Alexander Meyer'],
+      ABW:['Waldemar Anton','Nico Schlotterbeck','Ramy Bensebaini','Joane Gadou','Daniel Svensson','Julian Ryerson','Kauã Prates','Filippo Mane','Luca Reggiani'],
+      MF:['Jobe Bellingham','Felix Nmecha','Carney Chukwuemeka','Ethan Nwaneri','Konstantinos Karetsas','Marcel Sabitzer','Emre Can','Joey Veerman','Justin Lerma','Enzo dos Santos','Giannis Konstantelias','Mussa Kaba'],
+      ST:['Serhou Guirassy','Maximilian Beier','Fabio Silva','Samuele Inácio','Mathis Albert']
+    },
+    elv: {
+      TW:['Frank Lehmann','Elias Etringer','Nicolas Kristof','Tim Boss'],
+      ABW:['Nicholas Mickelson','Florian Le Joncour','Luis Seifert','Lukas Pinckert','Lasse Günther','Luca Sirch','Jan Gyamerah','Maximilian Rohr','Felix Keidel'],
+      MF:['Amara Condé','Maurice Krattenmacher','Łukasz Poręba','Noah Darvich','Raif Adam','Frederik Schmahl','Lukas Petkov','Tom Zimmerschied','Francis Onyeka'],
+      ST:['Noel Futkeu','Luca Pfeiffer','Luca Schnellbacher','Cole Campbell','David Mokwa']
+    },
+    sge: {
+      TW:['Noah Atubolu','Jens Grahl','Amil Siljevic','Kauã Santos'],
+      ABW:['Elias Baum','Lilian Brassier','Robin Koch','Otávio','Keita Kosugi','Nnamdi Collins','Julian Etse'],
+      MF:['Oscar Højlund','Farès Chaïbi','Noëll Aséko','Ritsu Dōan','Timothy Chandler','Raphael Onyedika','Mario Götze','Love Arrhov','Jeremiaha Maluze','Can Uzun'],
+      ST:['Ansgar Knauff','Jonathan Burkardt','Younes Ebnoutalib','Ayoube Amaimouni-Echghouyab','Malik Pimpong','Jessic Ngankam']
+    },
+    scf: {
+      TW:['Mio Backhaus','Florian Müller','Jannik Huth'],
+      ABW:['Philipp Lienhart','Anthony Jung','Lukas Kübler','Berkay Yilmaz','Matthias Ginter','Philipp Treu','Christian Günter','Jordy Makengo','Max Rosenfelder','Bruno Ogbus'],
+      MF:['Patrick Osterhage','Maximilian Eggestein','Yuito Suzuki','Yannik Engelhardt','Niklas Beste','Rihito Yamamoto','Florent Muslija','Vincenzo Grifo','Rouven Tarnutzer'],
+      ST:['Derry Scherhant','Lucas Höler','Cyriaque Irié','Igor Matanović','Keisuke Gotō']
+    },
+    hsv: {
+      TW:['Daniel Heuer Fernandes','Sander Tangvik','Elias Lahti','Fernando Dickes'],
+      ABW:['David Møller Wolfe','Zakaria El Ouahdi','Warmed Omari','Jordan Torunarigha','Nicolás Capaldo','Miro Muheim','Sebastiaan Bornauw','Louis Lemke','Joel Agyekum','Shafiq Nandja','Jason Bissi-Mouelle'],
+      MF:['Bilal Nadir','Martin Adeline','Albert Sambi Lokonga','Immanuël Pherai','Albert Grønbæk','Fábio Vieira','Nicolai Remberg','Kofi Amoako','Kelvin Ojo'],
+      ST:['Terem Moffi','Yussuf Poulsen','Bakery Jatta','Otto Stange','Patson Daka','Alexander Røssing-Lelesiit']
+    },
+    tsg: {
+      TW:['Oliver Baumann','Lúkas Petersson','Luca Philipp'],
+      ABW:['Robin Hranáč','Sean Dulic','Ozan Kabak','Bernardo','Valentin Gendrey','Albian Hajdari','Kōki Machida','Natnael Abraha','Vladimír Coufal','Mats Rots','Tristan Spranger'],
+      MF:['Leon Avdullahu','Patrick Wimmer','Luis Engelns','Nathan De Cat','Wouter Burger','Bambasé Conté','Alexander Prass','Andrej Kramarić','Cajetan Lenz'],
+      ST:['Max Moerstedt','Adam Hložek','Fisnik Asllani','Adam Daghim','Tim Lemperle']
+    },
+    koe: {
+      TW:['Marvin Schwäbe','Ron-Robert Zieler','Martin James','Matthias Köbbing'],
+      ABW:['Joël Schmied','Borna Sosa','Timo Hübers','Gideon Mensah','Jahmai Simpson-Pusey','Luka Lochoshvili','Sebastian Sebulonsen','Rav van den Berg','Jonathan Friemel'],
+      MF:['Tom Krauß','Ellyes Skhiri','Ísak Jóhannesson','Saïd El Mala','Reigan Heskey','Alessio Castro-Montes','Paul Okon-Engstler','Jan Thielmann','Gil Neves','Fayssal Harchaoui','Linton Maina'],
+      ST:['Luca Waldschmidt','Ragnar Ache','Imad Rondić','Malek El Mala','Thijs Dallinga','Marius Bülter','Mikey Moore']
+    }
+  };
+
+  const starRatings = {
+    'Harry Kane':[91,91], 'Jamal Musiala':[90,94], 'Michael Olise':[89,92], 'Joshua Kimmich':[89,89], 'Luis Díaz':[87,87], 'Alphonso Davies':[86,88], 'Jonathan Tah':[85,85], 'Dayot Upamecano':[85,87], 'Manuel Neuer':[84,84], 'Aleksandar Pavlović':[84,90], 'Lennart Karl':[78,91],
+    'Serhou Guirassy':[87,87], 'Nico Schlotterbeck':[86,88], 'Gregor Kobel':[86,88], 'Ethan Nwaneri':[82,93], 'Jobe Bellingham':[82,89], 'Felix Nmecha':[83,87], 'Joey Veerman':[84,85],
+    'Christopher Nkunku':[86,87], 'Antonio Nusa':[82,90], 'Castello Lukeba':[83,88], 'David Raum':[82,83], 'Johan Bakayoko':[82,88], 'Assan Ouédraogo':[79,90],
+    'Patrik Schick':[85,85], 'Moussa Diaby':[84,85], 'Edmond Tapsoba':[84,86], 'Malik Tillman':[83,88], 'Victor Boniface':[83,87], 'Jarell Quansah':[82,88],
+    'Deniz Undav':[84,84], 'Angelo Stiller':[83,88], 'Chris Führich':[82,82], 'Ermedin Demirović':[82,83], 'Jamie Leweling':[81,85],
+    'Robin Gosens':[82,82], 'Hee Chan Hwang':[81,81], 'Edin Džeko':[79,79], 'Kenan Karaman':[78,78], 'Satoshi Tanaka':[78,84], 'Adil Aouchiche':[77,84],
+    'Ritsu Dōan':[82,84], 'Mario Götze':[80,80], 'Jonathan Burkardt':[82,85], 'Can Uzun':[79,88], 'Robin Koch':[82,82],
+    'Vincenzo Grifo':[82,82], 'Matthias Ginter':[81,81], 'Yuito Suzuki':[79,85], 'Igor Matanović':[79,85],
+    'Adam Hložek':[81,85], 'Andrej Kramarić':[81,81], 'Oliver Baumann':[81,81],
+    'Mert Kömür':[76,86], 'Michael Gregoritsch':[78,78], 'Fabian Rieder':[78,82], 'Arijon Ibrahimović':[75,85],
+    'Tim Kleindienst':[81,81], 'Franck Honorat':[80,81], 'Kevin Stöger':[79,79], 'Nicolas Kühn':[79,84],
+    'Nadiem Amiri':[80,80], 'Paul Nebel':[78,85], 'Phillip Tietz':[78,79],
+    'Niclas Füllkrug':[81,81], 'Mitchell Weiser':[80,80], 'Marco Friedl':[79,81],
+    'Terem Moffi':[81,82], 'Fábio Vieira':[82,86], 'Patson Daka':[79,81], 'Albert Sambi Lokonga':[79,83],
+    'Ellyes Skhiri':[80,80], 'Thijs Dallinga':[79,82], 'Saïd El Mala':[77,89], 'Mikey Moore':[76,90],
+    'Emmanuel Latte Lath':[78,81], 'Tom Rothe':[77,85], 'Aljoscha Kemlein':[76,84],
+    'Maurice Krattenmacher':[75,86], 'Noah Darvich':[74,87], 'Cole Campbell':[73,86],
+    'Gabriel Vidović':[76,84], 'Laurin Ulrich':[74,85], 'Marvin Pieringer':[76,79]
+  };
+
+  const posBase = {TW:0,ABW:0,MF:0,ST:0};
+  const hash = s => [...s].reduce((a,c)=>((a*31+c.charCodeAt(0))>>>0),7);
+  const players=[];
+  let pid=1;
+  for(const club of clubs){
+    const s=squads[club.id];
+    for(const [pos,names] of Object.entries(s)){
+      names.forEach((name,idx)=>{
+        const h=hash(name);
+        const noise=(h%7)-3;
+        let rating=Math.max(64,Math.min(90,club.strength-2+noise));
+        let potential=Math.min(94,rating + (h%5));
+        if(starRatings[name]) [rating,potential]=starRatings[name];
+        const age=18+(h%18);
+        if(age<=21) potential=Math.max(potential,Math.min(92,rating+5+(h%4)));
+        const value=Math.round((Math.pow(Math.max(1,rating-60),2)*65000) * (potential>rating?1.15:1));
+        const wage=Math.round((club.wageBudget/Math.max(22,Object.values(s).flat().length))*(0.72+(rating-club.strength+8)/20));
+        const contractYears=1+(h%5);
+        players.push({id:'p'+pid++,name,clubId:club.id,position:pos,shirt:idx+1,rating,potential,age,value,wage,contractYears,form:70+(h%21),morale:72+(h%19)});
+      });
+    }
+  }
+
+  const leagues = {
+    'Deutschland · Bundesliga': clubs.map(c=>c.id),
+    'Deutschland · 2. Bundesliga': ['VfL Wolfsburg','FC St. Pauli','1. FC Heidenheim 1846','Hertha BSC','1. FC Nürnberg','1. FC Kaiserslautern','1. FC Magdeburg','VfL Bochum 1848','Hannover 96','VfL Osnabrück','SpVgg Greuther Fürth','Karlsruher SC','Eintracht Braunschweig','DSC Arminia Bielefeld','Holstein Kiel','SG Dynamo Dresden','SV Darmstadt 98','FC Energie Cottbus'],
+    'England · Premier League': [], 'England · Championship': [], 'Spanien · La Liga': [], 'Spanien · Segunda División': [], 'Italien · Serie A': [], 'Italien · Serie B': [], 'Frankreich · Ligue 1': [], 'Frankreich · Ligue 2': []
+  };
+
+  return {clubs,players,leagues,meta:{season:'2026/27',ratingModel:'Touchline Eigenbewertung; keine EA-/FM-Werte',updated:'2026-10-06'}};
+})();
+
+</script>
+<script>
+const DB=window.TOUCHLINE_DB;
+const SAVE_KEY='touchline_v3_2026_27';
+const fmtE=n=>new Intl.NumberFormat('de-DE',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
+const clone=o=>JSON.parse(JSON.stringify(o));
+let state=load();
+let view='dashboard';
+let modal=null;
+
+function initialState(){return {career:false,clubId:'s04',role:'sportdirektor',date:'2026-07-01',clubs:clone(DB.clubs),players:clone(DB.players),transfers:[],inbox:[],history:[]}}
+function load(){try{return {...initialState(),...JSON.parse(localStorage.getItem(SAVE_KEY)||'{}')}}catch{return initialState()}}
+function save(){localStorage.setItem(SAVE_KEY,JSON.stringify(state))}
+function club(id){return state.clubs.find(c=>c.id===id)}
+function myClub(){return club(state.clubId)}
+function squad(id=state.clubId){return state.players.filter(p=>p.clubId===id).sort((a,b)=>b.rating-a.rating)}
+function avgStrength(id){let s=squad(id).slice(0,18);return s.length?Math.round(s.reduce((a,p)=>a+p.rating,0)/s.length):club(id)?.strength||70}
+function nav(){return [['dashboard','Übersicht'],['squad','Kader'],['transfers','Transfers'],['negotiations','Verhandlungen'],['finances','Finanzen'],['stadium','Stadion'],['staff','Mitarbeiter'],['league','Vereinsvergleich'],['sources','Datenstand']]}
+
+function app(){
+ const root=document.getElementById('app');
+ if(!state.career){root.innerHTML=setupHtml();wireSetup();return}
+ const c=myClub();
+ root.innerHTML=`<div class="shell"><aside class="sidebar"><div class="brand">TOUCH<span>LINE</span></div><div class="season">Vereinsführung · Saison 2026/27</div><div class="nav">${nav().map(([id,n])=>`<button data-view="${id}" class="${view===id?'active':''}">${n}</button>`).join('')}</div><div class="source" style="margin-top:28px">${c.name}<br>${c.stadium}<br><br><button class="button secondary" id="newCareer">Neue Karriere</button></div></aside><main class="main"><div class="topbar"><div class="clubline"><strong>${c.name}</strong><div>${c.stadium} · Stärke ${avgStrength(c.id)} · Reputation ${c.reputation}</div></div><select class="role" id="roleSelect"><option value="vereinschef">Vereinschef</option><option value="sportdirektor">Sportdirektor</option><option value="trainer">Trainer</option></select></div>${renderView()}</main></div>${renderModal()}`;
+ document.getElementById('roleSelect').value=state.role;
+ document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>{view=b.dataset.view;modal=null;app()});
+ document.getElementById('roleSelect').onchange=e=>{state.role=e.target.value;save();app()};
+ document.getElementById('newCareer').onclick=()=>{if(confirm('Aktuelle Karriere wirklich zurücksetzen?')){localStorage.removeItem(SAVE_KEY);state=initialState();view='dashboard';app()}};
+ wireView();
+}
+
+function setupHtml(){return `<div class="setup"><div class="hero"><div class="label">TOUCHLINE VEREINSFÜHRUNG</div><h1>Dein Verein. Deine Entscheidungen.</h1><p>Neuer Datenbankkern für 2026/27 mit realen Bundesliga-Kadern, Vereinsstärken, Stadionökonomie und echten Transferverhandlungen.</p></div><div class="card form"><h2>Karriere starten</h2><div class="formgrid"><div><label>Land & Liga</label><select id="league"><option>Deutschland · Bundesliga</option><option>Deutschland · 2. Bundesliga</option><option>England · Premier League</option><option>England · Championship</option><option>Spanien · La Liga</option><option>Spanien · Segunda División</option><option>Italien · Serie A</option><option>Italien · Serie B</option><option>Frankreich · Ligue 1</option><option>Frankreich · Ligue 2</option></select></div><div><label>Verein</label><select id="club"></select></div><div><label>Deine Rolle</label><select id="role"><option value="vereinschef">Vereinschef</option><option value="sportdirektor" selected>Sportdirektor</option><option value="trainer">Trainer</option></select></div></div><p class="notice">In dieser Version ist <b>Deutschland · Bundesliga</b> vollständig mit realen 2026/27-Spielern spielbar. Die übrigen Ligawelten bleiben im Menü, werden aber erst nach dem gleichen Datenstandard freigeschaltet.</p><button class="button" id="start">Karriere starten</button></div></div>`}
+function wireSetup(){
+ const league=document.getElementById('league'), sel=document.getElementById('club');
+ function fill(){const l=league.value;if(l==='Deutschland · Bundesliga'){sel.disabled=false;sel.innerHTML=DB.clubs.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}else{sel.disabled=true;sel.innerHTML='<option>Noch nicht auf vollständigem Datenstandard</option>'}}
+ league.onchange=fill;fill();document.getElementById('start').onclick=()=>{if(league.value!=='Deutschland · Bundesliga'){alert('Diese Liga ist noch nicht vollständig mit realen 2026/27-Kadern hinterlegt. Bitte Bundesliga wählen.');return}state=initialState();state.career=true;state.clubId=sel.value;state.role=document.getElementById('role').value;save();app()}
+}
+
+function renderView(){switch(view){case'squad':return squadHtml();case'transfers':return transfersHtml();case'negotiations':return negotiationsHtml();case'finances':return financesHtml();case'stadium':return stadiumHtml();case'staff':return staffHtml();case'league':return leagueHtml();case'sources':return sourcesHtml();default:return dashboardHtml()}}
+function dashboardHtml(){const c=myClub(),s=squad();let avg=avgStrength(c.id),potential=Math.round(s.slice(0,18).reduce((a,p)=>a+p.potential,0)/Math.max(1,s.slice(0,18).length));return `<div class="hero"><div class="label">Saison 2026/27 · ${state.role}</div><h1>${c.short}</h1><p>Die Vereinsstärke basiert jetzt auf dem tatsächlichen Kaderniveau. Transfers verändern deine Mannschaftsstärke sofort.</p></div><div class="grid"><div class="card kpi"><div class="label">Kaderstärke</div><div class="value">${avg}</div><div class="small">Top-18 Durchschnitt</div></div><div class="card kpi"><div class="label">Potenzial</div><div class="value">${potential}</div><div class="small">Top-18 Potenzial</div></div><div class="card kpi"><div class="label">Transferbudget</div><div class="value">${fmtE(c.transferBudget)}</div></div><div class="card kpi"><div class="label">Stadion</div><div class="value">${c.capacity.toLocaleString('de-DE')}</div><div class="small">${c.stadium}</div></div><div class="card wide"><h2>Stärkste Spieler</h2>${playerTable(s.slice(0,8),false)}</div><div class="card side"><h2>Führung</h2><p><span class="label">Trainer</span><br><b>${c.coach}</b></p><p><span class="label">Sportdirektor</span><br><b>${c.sportingDirector}</b></p><p><span class="label">Sport-Geschäftsführung</span><br><b>${c.board}</b></p><div class="notice">Bayern liegt als Kader deutlich über Augsburg/Elversberg/Paderborn; diese Unterschiede fließen in Transferforderungen und Simulation ein.</div></div></div>`}
+function playerTable(players,action=true){return `<div class="tablewrap"><table><thead><tr><th>Spieler</th><th>Pos.</th><th>Alter*</th><th>Stärke</th><th>Potenzial</th><th>Marktwert</th><th>Gehalt/W.</th>${action?'<th></th>':''}</tr></thead><tbody>${players.map(p=>`<tr><td><b>${p.name}</b></td><td><span class="pill">${p.position}</span></td><td>${p.age}</td><td class="rating ${p.rating>=86?'high':''}">${p.rating}</td><td class="rating">${p.potential}</td><td>${fmtE(p.value)}</td><td>${fmtE(p.wage)}</td>${action?`<td><button class="button secondary negotiate" data-p="${p.id}">Verhandeln</button></td>`:''}</tr>`).join('')}</tbody></table></div>`}
+function squadHtml(){let s=squad();return `<div class="card full"><h1>Kader ${myClub().name}</h1><p class="small">Aktuelle 2026/27-Kadernamen. Stärke und Potenzial sind Touchline-Eigenbewertungen und keine kopierten EA-/Football-Manager-Werte.</p>${playerTable(s,false)}</div>`}
+function transfersHtml(){const others=state.players.filter(p=>p.clubId!==state.clubId).sort((a,b)=>b.rating-a.rating);return `<div class="card full"><h1>Transfermarkt</h1><div class="toolbar"><input id="search" placeholder="Spieler suchen…"><select id="minRating"><option value="0">Alle Stärken</option><option value="80">80+</option><option value="85">85+</option><option value="88">88+</option></select><select id="pos"><option value="">Alle Positionen</option><option>TW</option><option>ABW</option><option>MF</option><option>ST</option></select></div><div id="transferTable">${playerTable(others.slice(0,120),true)}</div></div>`}
+function negotiationsHtml(){const ts=state.transfers.slice().reverse();return `<div class="card full"><h1>Verhandlungen</h1>${ts.length?`<div class="tablewrap"><table><thead><tr><th>Spieler</th><th>Verein</th><th>Status</th><th>Ablöse</th><th>Gehalt</th><th></th></tr></thead><tbody>${ts.map(t=>{const p=state.players.find(x=>x.id===t.playerId);return `<tr><td><b>${p?.name||t.playerName}</b></td><td>${club(t.fromClubId)?.short||'-'}</td><td><span class="pill">${t.status}</span></td><td>${fmtE(t.fee||0)}</td><td>${fmtE(t.wage||0)}</td><td>${t.status==='Verein akzeptiert'?`<button class="button playerTalk" data-t="${t.id}">Spieler verhandeln</button>`:''}</td></tr>`}).join('')}</tbody></table></div>`:'<div class="notice">Noch keine Verhandlungen gestartet.</div>'}</div>`}
+function financesHtml(){const c=myClub(),weekly=squad().reduce((a,p)=>a+p.wage,0),annual=weekly*52;return `<div class="grid"><div class="card kpi"><div class="label">Transferbudget</div><div class="value">${fmtE(c.transferBudget)}</div></div><div class="card kpi"><div class="label">Gehaltsbudget/Woche</div><div class="value">${fmtE(c.wageBudget)}</div></div><div class="card kpi"><div class="label">Aktuelle Gehälter/Woche</div><div class="value ${weekly>c.wageBudget?'bad':'good'}">${fmtE(weekly)}</div></div><div class="card kpi"><div class="label">Jährliche Kadergehälter</div><div class="value">${fmtE(annual)}</div></div><div class="card full"><h2>Budgetlogik</h2><p>Das Transferbudget ist ein <b>realistischer Spielwert</b>, kein behaupteter offizieller Vereinswert. Es skaliert mit Vereinsgröße, Reputation, Kaderstärke und wirtschaftlichem Niveau. Transfers ziehen Ablöse sowie Handgeld ab; Gehälter belasten das Wochenbudget.</p></div></div>`}
+function stadiumHtml(){const c=myClub(),attendance=Math.round(c.capacity*(.62+c.reputation/300)),matchRevenue=attendance*c.ticketPrice;return `<div class="grid"><div class="card wide"><h1>${c.stadium}</h1><p><b>${c.capacity.toLocaleString('de-DE')}</b> Plätze</p><div class="form"><label>Durchschnittlicher Ticketpreis (Spielmodell)</label><input id="ticket" type="number" min="10" max="200" value="${c.ticketPrice}"></div><p class="notice">Erwartete Auslastung: <b>${attendance.toLocaleString('de-DE')}</b> · Ticketeinnahmen pro Heimspiel: <b>${fmtE(matchRevenue)}</b></p><button class="button" id="saveTicket">Preis speichern</button></div><div class="card side"><h2>Stadioneffekt</h2><p>Kapazität, Reputation und Ticketpreis bestimmen die Heimspiel-Einnahmen. Ein großer Verein mit hoher Nachfrage kann höhere Preise verlangen; zu hohe Preise drücken in späteren Versionen die Auslastung.</p></div></div>`}
+function staffHtml(){const c=myClub();const staff=[['Cheftrainer',c.coach,78+Math.round(c.strength/8),'Taktik / Entwicklung'],['Sportdirektor',c.sportingDirector,76+Math.round(c.reputation/9),'Transfers / Netzwerk'],['Sport-Geschäftsführung',c.board,75+Math.round(c.reputation/10),'Budget / Strategie']];return `<div class="card full"><h1>Mitarbeiter</h1><div class="tablewrap"><table><thead><tr><th>Rolle</th><th>Name</th><th>Gesamt</th><th>Profil</th></tr></thead><tbody>${staff.map(x=>`<tr><td>${x[0]}</td><td><b>${x[1]}</b></td><td class="rating">${x[2]}</td><td>${x[3]}</td></tr>`).join('')}</tbody></table></div><p class="small">Mitarbeiterstärken sind Touchline-Spielwerte; die Namen/Funktionen basieren auf dem aktuellen Vereinsstand.</p></div>`}
+function leagueHtml(){const cs=state.clubs.slice().sort((a,b)=>avgStrength(b.id)-avgStrength(a.id));return `<div class="card full"><h1>Bundesliga-Vereinsvergleich 2026/27</h1><div class="tablewrap"><table><thead><tr><th>#</th><th>Verein</th><th>Kaderstärke</th><th>Reputation</th><th>Transferbudget</th><th>Stadion</th><th>Kapazität</th></tr></thead><tbody>${cs.map((c,i)=>`<tr><td>${i+1}</td><td><b>${c.name}</b></td><td class="rating ${avgStrength(c.id)>=85?'high':''}">${avgStrength(c.id)}</td><td>${c.reputation}</td><td>${fmtE(c.transferBudget)}</td><td>${c.stadium}</td><td>${c.capacity.toLocaleString('de-DE')}</td></tr>`).join('')}</tbody></table></div></div>`}
+function sourcesHtml(){return `<div class="card full"><h1>Datenstand</h1><p>Stand: 06.10.2026 · Saison 2026/27.</p><p><b>Reale Daten:</b> Bundesliga-Vereine, aktuelle Kadernamen, aktuelle Cheftrainer, Stadien/Kapazitäten und mehrere Sportdirektoren/Führungspersonen.</p><p><b>Touchline-Spielmodell:</b> Gesamtstärken, Potenziale, Marktwerte, Gehälter, Transferbudgets, Ticketpreise und Mitarbeiterstärken. Diese Werte sind bewusst eigene Spielwerte und nicht aus EA FC oder Football Manager kopiert.</p><p class="small">* Alterswerte sind in dieser technischen Version teilweise modelliert, solange nicht für jeden Spieler ein verifizierter Geburtstag hinterlegt ist. Die Kadernamen selbst entsprechen dem aktuellen 2026/27-Stand der Bundesliga.</p></div>`}
+function renderModal(){if(!modal)return'';if(modal.type==='offer'){const p=state.players.find(x=>x.id===modal.playerId),seller=club(p.clubId),ask=Math.round(p.value*(1.12+(seller.reputation-myClub().reputation)/500));const demand=Math.round(p.wage*(1.10+(myClub().reputation<seller.reputation?.08:0)));return `<div class="modalback"><div class="modal form"><button class="button secondary closeModal" style="float:right">Schließen</button><h2>${p.name}</h2><p>${seller.name} · ${p.position} · Stärke <b>${p.rating}</b> · Potenzial <b>${p.potential}</b></p><div class="notice">Geschätzte Forderung des Vereins: <b>${fmtE(ask)}</b></div><div class="formgrid"><div><label>Ablöseangebot</label><input id="fee" type="number" value="${Math.round(ask*.92)}"></div><div><label>Geplantes Gehalt/Woche</label><input id="wage" type="number" value="${demand}"></div><div><label>Vertragslaufzeit</label><select id="years"><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div><div><label>Kaderrolle</label><select id="roleOffer"><option value="rotation">Rotation</option><option value="important">Wichtiger Spieler</option><option value="star">Starspieler</option></select></div><div><label>Handgeld</label><input id="bonus" type="number" value="${Math.round(p.value*.03)}"></div></div><button class="button" id="submitClubOffer">Angebot an Verein senden</button></div></div>`}
+if(modal.type==='player'){const t=state.transfers.find(x=>x.id===modal.transferId),p=state.players.find(x=>x.id===t.playerId);return `<div class="modalback"><div class="modal form"><button class="button secondary closeModal" style="float:right">Schließen</button><h2>Vertrag mit ${p.name}</h2><p>Der abgebende Verein hat ${fmtE(t.fee)} akzeptiert.</p><div class="formgrid"><div><label>Gehalt/Woche</label><input id="wage2" type="number" value="${t.wage}"></div><div><label>Laufzeit</label><select id="years2"><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div><div><label>Rolle</label><select id="role2"><option value="rotation">Rotation</option><option value="important" selected>Wichtiger Spieler</option><option value="star">Starspieler</option></select></div><div><label>Handgeld</label><input id="bonus2" type="number" value="${Math.round(p.value*.03)}"></div></div><button class="button" id="submitPlayerOffer">Vertrag anbieten</button></div></div>`}return''}
+
+function wireView(){
+ document.querySelectorAll('.negotiate').forEach(b=>b.onclick=()=>{modal={type:'offer',playerId:b.dataset.p};app()});
+ document.querySelectorAll('.closeModal').forEach(b=>b.onclick=()=>{modal=null;app()});
+ if(view==='transfers'){
+  const search=document.getElementById('search'),min=document.getElementById('minRating'),pos=document.getElementById('pos');
+  const ref=()=>{let q=(search.value||'').toLowerCase();let arr=state.players.filter(p=>p.clubId!==state.clubId&&p.rating>=+min.value&&(!pos.value||p.position===pos.value)&&p.name.toLowerCase().includes(q)).sort((a,b)=>b.rating-a.rating).slice(0,120);document.getElementById('transferTable').innerHTML=playerTable(arr,true);document.querySelectorAll('.negotiate').forEach(b=>b.onclick=()=>{modal={type:'offer',playerId:b.dataset.p};app()})};search.oninput=min.onchange=pos.onchange=ref;
+ }
+ if(document.getElementById('saveTicket'))document.getElementById('saveTicket').onclick=()=>{myClub().ticketPrice=+document.getElementById('ticket').value;save();app()};
+ document.querySelectorAll('.playerTalk').forEach(b=>b.onclick=()=>{modal={type:'player',transferId:b.dataset.t};app()});
+ if(document.getElementById('submitClubOffer'))document.getElementById('submitClubOffer').onclick=submitClubOffer;
+ if(document.getElementById('submitPlayerOffer'))document.getElementById('submitPlayerOffer').onclick=submitPlayerOffer;
+}
+function submitClubOffer(){const p=state.players.find(x=>x.id===modal.playerId),seller=club(p.clubId),fee=+document.getElementById('fee').value,wage=+document.getElementById('wage').value,years=+document.getElementById('years').value,role=document.getElementById('roleOffer').value,bonus=+document.getElementById('bonus').value;const ask=p.value*(1.08+Math.max(0,seller.reputation-myClub().reputation)/450)*(p.contractYears>=4?1.08:1);let status='Verein lehnt ab';if(fee>=ask*.96)status='Verein akzeptiert';else if(fee>=ask*.87)status='Gegenangebot: '+fmtE(Math.round(ask));const t={id:'t'+Date.now(),playerId:p.id,playerName:p.name,fromClubId:p.clubId,toClubId:state.clubId,fee,wage,years,role,bonus,status,createdAt:new Date().toISOString()};state.transfers.push(t);save();modal=null;view='negotiations';app()}
+function submitPlayerOffer(){const t=state.transfers.find(x=>x.id===modal.transferId),p=state.players.find(x=>x.id===t.playerId),wage=+document.getElementById('wage2').value,years=+document.getElementById('years2').value,role=document.getElementById('role2').value,bonus=+document.getElementById('bonus2').value;const repGap=club(p.clubId).reputation-myClub().reputation;let demand=p.wage*(1.05+Math.max(0,repGap)/170);if(role==='star')demand*=.94;if(role==='rotation')demand*=1.12;const accepted=wage>=demand*.97&&bonus>=p.value*.015;if(!accepted){t.status='Spieler lehnt Vertrag ab';t.wage=wage;t.bonus=bonus;save();modal=null;app();return}if(myClub().transferBudget<t.fee+bonus){alert('Transferbudget reicht nicht.');return}const projected=squad().reduce((a,x)=>a+x.wage,0)+wage;if(projected>myClub().wageBudget*1.08){alert('Gehaltsbudget würde zu stark überschritten.');return}const from=club(p.clubId);myClub().transferBudget-=t.fee+bonus;from.transferBudget+=t.fee;p.clubId=state.clubId;p.wage=wage;p.contractYears=years;t.status='Transfer abgeschlossen';t.wage=wage;t.years=years;t.role=role;t.bonus=bonus;state.history.push(`${p.name} für ${fmtE(t.fee)} verpflichtet`);save();modal=null;view='squad';app()}
+app();
+
+</script>
+</body></html>
